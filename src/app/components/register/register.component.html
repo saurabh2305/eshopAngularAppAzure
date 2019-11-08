@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-6 col-lg-4 mx-auto">
+        <h2>Register</h2>
+        <form [formGroup]="userForm" (submit)="register()">
+            <div class="form-group">
+                <label for="fullname">Full name</label>
+                <input type="text" name="fullname" formControlName="fullname" class="form-control" />
+                <div *ngIf="Fullname.invalid && Fullname.touched" class="text-danger">
+                    <div *ngIf="Fullname.errors && Fullname.errors['required']">Fullname cannot be empty</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" formControlName="username" class="form-control" />
+                <div *ngIf="Username.invalid && Username.touched" class="text-danger">
+                    <div *ngIf="Username.errors && Username.errors['required']">Username cannot be empty</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" formControlName="password" class="form-control" />
+                <div *ngIf="Password.invalid && Password.touched" class="text-danger">
+                    <div *ngIf="Password.errors && Password.errors['required']">Password cannot be empty</div>
+                    <div *ngIf="Password.errors && Password.errors['minlength']">Minimum 8 characters required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" formControlName="email" class="form-control" />
+                <div *ngIf="Email.invalid && Email.touched" class="text-danger">
+                    <div *ngIf="Email.errors && Email.errors['required']">Email cannot be empty</div>
+                    <div *ngIf="Email.errors && Email.errors['email']">Invalid email format</div>
+                </div>
+            </div>
+            <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>

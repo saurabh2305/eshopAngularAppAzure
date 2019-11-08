@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserService } from './services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'eshop-client';
+    
+    currentUser:any;
+
+    constructor(private userSvc:UserService, private router:Router)
+    {
+        this.userSvc.currentUser.subscribe(user=>this.currentUser=user);
+    }
+
+    logout(){
+        this.userSvc.clearUserState();
+        this.router.navigate(['/login']);
+    }
 }

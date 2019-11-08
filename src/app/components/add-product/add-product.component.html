@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-6 col-lg-4 mx-auto">
+        <h2>Add Product</h2>
+        <form #frm="ngForm" (submit)="save(frm,image)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="product.name" />
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" name="price" #price="ngModel" [(ngModel)]="product.price" />
+            </div>
+            <div class="form-group">
+                <label for="Quantity">Quantity</label>
+                <input type="number" class="form-control" name="quantity" #quantity="ngModel" [(ngModel)]="product.quantity" />
+            </div>
+            <div class="form-group">
+                <label for="reorderLevel">Reordre Level</label>
+                <input type="number" class="form-control" name="reorderLevel" #rLevel="ngModel" [(ngModel)]="product.reorderLevel" />
+            </div>
+            <div class="form-group">
+                <label for="manufacturingDate">Manufacturing Date</label>
+                <input type="date" class="form-control" name="manufacturingDate" #mDate="ngModel" [(ngModel)]="product.manufacturingDate" />
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" name="image" #image />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" name="save">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
